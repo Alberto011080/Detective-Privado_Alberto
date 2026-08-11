@@ -418,7 +418,7 @@ document.querySelectorAll('.acc-item').forEach(item => {
 const popupOverlay = document.getElementById('popupOverlay');
 const popupClose = document.getElementById('popupClose');
 const popupDismiss = document.getElementById('popupDismiss');
-const TIEMPO_AVISO = 20 * 60 * 1000; // 20 minutos
+const TIEMPO_AVISO = 20 * 1000; // 20 segundos
 
 function showPopup(){
   if(sessionStorage.getItem('avisoContactoMostrado')) return;
