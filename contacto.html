@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto | Alberto Casaus — Detective Privado</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Courier+Prime:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --ink:#0d1219;
+  --ink-2:#141b25;
+  --folder:#e6dabb;
+  --folder-2:#d8c89e;
+  --folder-shadow:#a9905f;
+  --brass:#c9a468;
+  --brass-dim:#8a713f;
+  --burgundy:#7a232d;
+  --burgundy-dim:#5a1a22;
+  --cream:#f3ecdb;
+  --fog:#93a0ae;
+  --line:rgba(201,164,104,0.25);
+  --maxw:1180px;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--ink);
+  color:var(--cream);
+  font-family:'Inter',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+.grain{position:fixed; inset:0; pointer-events:none; z-index:999; opacity:0.05; mix-blend-mode:overlay;}
+
+h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em;}
+a{color:inherit; text-decoration:none;}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+
+.eyebrow{
+  font-family:'Courier Prime', monospace; font-size:12.5px; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--brass); display:flex; align-items:center; gap:10px;
+}
+.eyebrow::before{content:""; width:22px; height:1px; background:var(--brass); display:inline-block;}
+
+/* ---------- NAVBAR ---------- */
+header{
+  position:fixed; top:0; left:0; right:0; z-index:500;
+  background:rgba(13,18,25,0.86); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+nav{max-width:var(--maxw); margin:0 auto; padding:7px 32px; display:flex; align-items:center; justify-content:space-between;}
+.brand{display:flex; align-items:center; gap:10px;}
+.brand-text{display:flex; flex-direction:column; line-height:1.1;}
+.brand-text .name{font-family:'Fraunces',serif; font-weight:600; font-size:14px; letter-spacing:0.01em;}
+.brand-text .role{font-family:'Courier Prime',monospace; font-size:9px; letter-spacing:0.13em; color:var(--brass); text-transform:uppercase; margin-top:1px;}
+
+.navlinks{display:flex; align-items:center; gap:30px;}
+.navlinks a{font-size:13px; font-weight:500; color:var(--fog); position:relative; padding:3px 0; transition:color .25s ease;}
+.navlinks a:hover{color:var(--cream);}
+.navlinks a::after{content:""; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--brass); transition:width .3s ease;}
+.navlinks a:hover::after{width:100%;}
+.navlinks a.active{color:var(--cream);}
+.navlinks a.active::after{width:100%;}
+.navlinks a.juez{color:var(--ink); background:var(--brass); padding:6px 14px; border-radius:2px; font-family:'Courier Prime',monospace; font-size:11.5px; letter-spacing:0.06em;}
+.navlinks a.juez:hover{background:var(--cream); color:var(--ink);}
+.navlinks a.juez::after{display:none;}
+
+.burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none;}
+.burger span{width:24px; height:1.5px; background:var(--cream);}
+
+/* ---------- PAGE HEADER ---------- */
+.page-header{
+  padding:130px 0 60px;
+  background:
+    radial-gradient(circle at 75% 20%, rgba(201,164,104,0.08), transparent 45%),
+    linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+  border-bottom:1px solid var(--line);
+}
+.page-header h1{font-size:clamp(2.1rem,4vw,3.1rem); color:var(--cream); margin-top:14px;}
+.page-header p{color:var(--fog); font-size:15.5px; margin-top:16px; max-width:560px;}
+
+/* ---------- CONTACT SECTION ---------- */
+.contact-page{padding:70px 0 110px;}
+.contact-page-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:start;}
+
+.info-block{position:sticky; top:110px;}
+.info-block .eyebrow{margin-bottom:14px;}
+.info-block h2{font-size:clamp(1.4rem,2.2vw,1.7rem); color:var(--cream); margin-bottom:14px;}
+.info-block p{color:var(--fog); font-size:14.5px; margin-bottom:26px; max-width:400px;}
+
+.contact-details{font-family:'Courier Prime',monospace; font-size:14px; color:var(--cream); line-height:2.4; margin-bottom:30px;}
+.contact-details span{color:var(--fog); display:block; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;}
+
+.confidential-note{
+  display:flex; gap:12px; align-items:flex-start;
+  border:1px solid var(--line); padding:16px 18px; border-radius:2px;
+  background:rgba(201,164,104,0.03);
+}
+.confidential-note svg{width:20px; height:20px; color:var(--brass); flex-shrink:0; margin-top:2px;}
+.confidential-note p{font-size:13px; color:var(--fog); margin:0;}
+
+/* ---------- FORM CARD ---------- */
+.form-wrap{position:relative;}
+.form-card{
+  position:relative;
+  background:linear-gradient(180deg, var(--folder) 0%, var(--folder-2) 100%);
+  color:#241c10; border-radius:2px; padding:44px 40px 40px;
+  box-shadow:0 24px 46px -22px rgba(0,0,0,0.6);
+}
+.form-card::before{
+  content:""; position:absolute; top:-14px; left:36px; width:90px; height:16px;
+  background:var(--folder-shadow); clip-path:polygon(8% 0, 92% 0, 100% 100%, 0% 100%); opacity:0.9;
+}
+.form-card .form-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:28px;}
+.form-card .form-head span{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:0.08em; color:var(--folder-shadow);}
+.form-card h3{font-size:20px; color:#211a0f; margin-bottom:4px;}
+
+.field{margin-bottom:22px;}
+.field label{
+  display:block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:0.08em;
+  text-transform:uppercase; color:#6b5b3a; margin-bottom:8px;
+}
+.field input, .field select, .field textarea{
+  width:100%; border:none; border-bottom:1.5px solid rgba(74,63,42,0.35);
+  background:transparent; font-family:'Inter',sans-serif; font-size:15px; color:#241c10;
+  padding:8px 2px; outline:none; transition:border-color .25s ease;
+}
+.field input::placeholder, .field textarea::placeholder{color:rgba(74,63,42,0.5);}
+.field input:focus, .field select:focus, .field textarea:focus{border-color:var(--burgundy);}
+.field.invalid input, .field.invalid select, .field.invalid textarea{border-color:#a33;}
+.field .error-msg{display:none; font-size:11.5px; color:#a33; margin-top:6px; font-family:'Courier Prime',monospace;}
+.field.invalid .error-msg{display:block;}
+.consent.invalid label{color:#a33;}
+.field textarea{resize:vertical; min-height:100px; line-height:1.5;}
+.field-row{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+
+.consent{display:flex; align-items:flex-start; gap:10px; margin-bottom:28px;}
+.consent input{margin-top:3px; accent-color:var(--burgundy);}
+.consent label{font-size:12.5px; color:#4a3f2a; line-height:1.5;}
+
+.submit-btn{
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--burgundy); color:var(--cream); border:none;
+  padding:14px 30px; font-size:14px; font-weight:600; letter-spacing:0.02em;
+  border-radius:2px; cursor:pointer; transition:background .25s ease;
+  font-family:'Inter',sans-serif;
+}
+.submit-btn:hover{background:var(--burgundy-dim);}
+.submit-btn svg{width:15px; height:15px;}
+
+/* ---------- CONFIRMATION ---------- */
+.confirm-card{
+  display:none;
+  position:relative;
+  background:linear-gradient(180deg, var(--folder) 0%, var(--folder-2) 100%);
+  color:#241c10; border-radius:2px; padding:60px 40px; text-align:center;
+  box-shadow:0 24px 46px -22px rgba(0,0,0,0.6);
+}
+.confirm-card::before{
+  content:""; position:absolute; top:-14px; left:36px; width:90px; height:16px;
+  background:var(--folder-shadow); clip-path:polygon(8% 0, 92% 0, 100% 100%, 0% 100%); opacity:0.9;
+}
+.confirm-card.show{display:block; animation:fadeUp .5s ease;}
+@keyframes fadeUp{from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:translateY(0);}}
+.confirm-stamp{
+  width:64px; height:64px; border:2.5px solid var(--burgundy); border-radius:50%;
+  display:flex; align-items:center; justify-content:center; margin:0 auto 22px;
+  transform:rotate(-8deg); opacity:0.9;
+}
+.confirm-stamp svg{width:28px; height:28px; color:var(--burgundy);}
+.confirm-card h3{font-size:24px; color:#211a0f; margin-bottom:12px;}
+.confirm-card p{font-size:15px; color:#4a3f2a; max-width:380px; margin:0 auto;}
+.confirm-card .caseno{
+  font-family:'Courier Prime',monospace; font-size:11px; color:var(--folder-shadow);
+  letter-spacing:0.08em; margin-top:24px;
+}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--line); padding:34px 0;}
+.footer-inner{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;}
+.footer-cred{font-family:'Courier Prime',monospace; font-size:12px; color:var(--fog); letter-spacing:0.03em;}
+.footer-cred strong{color:var(--brass);}
+
+@media (max-width:900px){
+  .contact-page-grid{grid-template-columns:1fr;}
+  .info-block{position:static;}
+  .field-row{grid-template-columns:1fr;}
+  .navlinks{
+    position:fixed; top:42px; right:0; left:0; background:var(--ink);
+    flex-direction:column; align-items:flex-start; gap:0; border-top:1px solid var(--line);
+    max-height:0; overflow:hidden; transition:max-height .35s ease;
+  }
+  .navlinks.open{max-height:320px;}
+  .navlinks a{width:100%; padding:16px 32px; border-bottom:1px solid var(--line);}
+  .navlinks a.juez{margin:16px 32px; width:calc(100% - 64px); text-align:center;}
+  .burger{display:flex;}
+}
+</style>
+</head>
+<body>
+
+<svg class="grain" width="0" height="0">
+  <filter id="noiseFilter">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
+  </filter>
+</svg>
+<div class="grain" style="filter:url(#noiseFilter)"></div>
+
+<header>
+  <nav>
+    <div class="brand">
+      <div class="brand-text">
+        <span class="name">Alberto Casaus</span>
+        <span class="role">Detective Privado</span>
+      </div>
+    </div>
+    <button class="burger" id="burger" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="navlinks" id="navlinks">
+      <a href="index.html#inicio">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="contacto.html" class="active">Contacto</a>
+      <a href="juezia.html" class="juez">Pregunta a JuezIA</a>
+    </div>
+  </nav>
+</header>
+
+<section class="page-header wrap">
+  <span class="eyebrow">Expediente nuevo</span>
+  <h1>Abramos tu caso.</h1>
+  <p>Toda consulta inicial se trata con confidencialidad absoluta. Cuéntanos qué necesitas investigar y te indicaremos cómo proceder, sin compromiso.</p>
+</section>
+
+<section class="contact-page wrap">
+  <div class="contact-page-grid">
+
+    <div class="info-block">
+      <span class="eyebrow">Vías de contacto</span>
+      <h2>Hablemos con discreción</h2>
+      <p>Respondemos personalmente a cada consulta. Si lo prefieres, también puedes escribir o llamar directamente.</p>
+
+      <div class="contact-details">
+        <div><span>Teléfono</span>650 56 91 01</div>
+        <div><span>Correo</span>al100180@gmail.com</div>
+        <div><span>Zona de actuación</span>Toda España</div>
+      </div>
+
+      <div class="confidential-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 5-3.2 8.4-7 9-3.8-.6-7-4-7-9V6l7-3z"/></svg>
+        <p>Toda la información facilitada se trata bajo secreto profesional, conforme a la Ley 5/2014 de Seguridad Privada.</p>
+      </div>
+    </div>
+
+    <div class="form-wrap">
+      <form class="form-card" id="contactForm">
+        <div class="form-head">
+          <h3>Formulario de consulta</h3>
+          <span>EXP. NUEVO</span>
+        </div>
+
+        <div class="field-row">
+          <div class="field" data-field="nombre">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+            <span class="error-msg">Indica tu nombre.</span>
+          </div>
+          <div class="field">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="600 000 000">
+          </div>
+        </div>
+
+        <div class="field" data-field="email">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com">
+          <span class="error-msg">Indica un correo válido.</span>
+        </div>
+
+        <div class="field">
+          <label for="servicio">Tipo de servicio</label>
+          <select id="servicio" name="servicio">
+            <option value="">Selecciona una opción</option>
+            <option>Infidelidad de parejas</option>
+            <option>Localización de personas</option>
+            <option>Seguimiento de bajas laborales</option>
+            <option>Conductas dudosas de hijos</option>
+            <option>Acoso y contravigilancia</option>
+            <option>Pensión alimenticia y custodia</option>
+            <option>Propiedad intelectual</option>
+            <option>Otro / no lo sé todavía</option>
+          </select>
+        </div>
+
+        <div class="field" data-field="mensaje">
+          <label for="mensaje">Cuéntanos tu caso</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Describe brevemente la situación..."></textarea>
+          <span class="error-msg">Cuéntanos brevemente qué necesitas.</span>
+        </div>
+
+        <div class="consent" data-field="consent">
+          <input type="checkbox" id="consent">
+          <label for="consent">He leído y acepto que mi consulta será tratada de forma confidencial, conforme a la Ley 5/2014 de Seguridad Privada.</label>
+        </div>
+        <span class="error-msg" id="consentError" style="display:none; margin:-16px 0 20px;">Debes aceptar la confidencialidad para continuar.</span>
+
+        <button type="submit" class="submit-btn">
+          Enviar consulta
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+
+      <div class="confirm-card" id="confirmCard">
+        <div class="confirm-stamp">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12l5 5L20 6"/></svg>
+        </div>
+        <h3>Mensaje enviado</h3>
+        <p>Nos pondremos en contacto contigo lo antes posible.</p>
+        <div class="caseno">EXPEDIENTE REGISTRADO — EN ESPERA DE REVISIÓN</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-cred"><strong>Detective Privado Acreditado:</strong> Alberto Casaus</div>
+    <div class="footer-cred">© 2026 — Todas las investigaciones se realizan conforme a la Ley 5/2014 de Seguridad Privada</div>
+  </div>
+</footer>
+
+<script>
+const burger = document.getElementById('burger');
+const navlinks = document.getElementById('navlinks');
+burger.addEventListener('click', () => navlinks.classList.toggle('open'));
+
+const form = document.getElementById('contactForm');
+const confirmCard = document.getElementById('confirmCard');
+const consentBox = document.getElementById('consent');
+const consentError = document.getElementById('consentError');
+
+function checkField(id){
+  const wrap = document.querySelector('[data-field="'+id+'"]');
+  const val = document.getElementById(id).value.trim();
+  if(!val){ wrap.classList.add('invalid'); return false; }
+  wrap.classList.remove('invalid');
+  return true;
+}
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const nombreOk = checkField('nombre');
+  const mensajeOk = checkField('mensaje');
+  const emailField = document.getElementById('email');
+  const emailWrap = document.querySelector('[data-field="email"]');
+  const emailOk = emailField.value.trim() !== '' && emailField.value.includes('@') && emailField.value.includes('.');
+  emailWrap.classList.toggle('invalid', !emailOk);
+
+  const consentOk = consentBox.checked;
+  consentError.style.display = consentOk ? 'none' : 'block';
+
+  if(!nombreOk || !mensajeOk || !emailOk || !consentOk){
+    const firstInvalid = form.querySelector('.invalid input, .invalid textarea, .invalid select') || (!consentOk ? consentBox : null);
+    if(firstInvalid){ firstInvalid.scrollIntoView({behavior:'smooth', block:'center'}); firstInvalid.focus(); }
+    return;
+  }
+
+  form.style.display = 'none';
+  confirmCard.classList.add('show');
+  confirmCard.scrollIntoView({behavior:'smooth', block:'center'});
+});
+</script>
+
+</body>
+</html>

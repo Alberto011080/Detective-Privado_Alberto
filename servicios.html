@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios | Alberto Casaus — Detective Privado</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Courier+Prime:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --ink:#0d1219;
+  --ink-2:#141b25;
+  --folder:#e6dabb;
+  --folder-2:#d8c89e;
+  --folder-shadow:#a9905f;
+  --brass:#c9a468;
+  --brass-dim:#8a713f;
+  --burgundy:#7a232d;
+  --burgundy-dim:#5a1a22;
+  --cream:#f3ecdb;
+  --fog:#93a0ae;
+  --line:rgba(201,164,104,0.25);
+  --maxw:1180px;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--ink); color:var(--cream); font-family:'Inter',sans-serif;
+  font-size:16px; line-height:1.6; overflow-x:hidden;
+}
+.grain{position:fixed; inset:0; pointer-events:none; z-index:999; opacity:0.05; mix-blend-mode:overlay;}
+h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em;}
+a{color:inherit; text-decoration:none;}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+
+.eyebrow{
+  font-family:'Courier Prime', monospace; font-size:12.5px; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--brass); display:flex; align-items:center; gap:10px;
+}
+.eyebrow::before{content:""; width:22px; height:1px; background:var(--brass); display:inline-block;}
+
+/* ---------- NAVBAR ---------- */
+header{
+  position:fixed; top:0; left:0; right:0; z-index:500;
+  background:rgba(13,18,25,0.86); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+}
+nav{max-width:var(--maxw); margin:0 auto; padding:7px 32px; display:flex; align-items:center; justify-content:space-between;}
+.brand{display:flex; align-items:center; gap:10px;}
+.brand-text{display:flex; flex-direction:column; line-height:1.1;}
+.brand-text .name{font-family:'Fraunces',serif; font-weight:600; font-size:14px; letter-spacing:0.01em;}
+.brand-text .role{font-family:'Courier Prime',monospace; font-size:9px; letter-spacing:0.13em; color:var(--brass); text-transform:uppercase; margin-top:1px;}
+
+.navlinks{display:flex; align-items:center; gap:30px;}
+.navlinks a{font-size:13px; font-weight:500; color:var(--fog); position:relative; padding:3px 0; transition:color .25s ease;}
+.navlinks a:hover{color:var(--cream);}
+.navlinks a::after{content:""; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--brass); transition:width .3s ease;}
+.navlinks a:hover::after{width:100%;}
+.navlinks a.active{color:var(--cream);}
+.navlinks a.active::after{width:100%;}
+.navlinks a.juez{color:var(--ink); background:var(--brass); padding:6px 14px; border-radius:2px; font-family:'Courier Prime',monospace; font-size:11.5px; letter-spacing:0.06em;}
+.navlinks a.juez:hover{background:var(--cream); color:var(--ink);}
+.navlinks a.juez::after{display:none;}
+
+.burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none;}
+.burger span{width:24px; height:1.5px; background:var(--cream);}
+
+/* ---------- PAGE HEADER ---------- */
+.page-header{
+  padding:130px 0 50px;
+  background:
+    radial-gradient(circle at 75% 20%, rgba(201,164,104,0.08), transparent 45%),
+    linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+  border-bottom:1px solid var(--line);
+}
+.page-header h1{font-size:clamp(2.1rem,4vw,3.1rem); color:var(--cream); margin-top:14px;}
+.page-header p{color:var(--fog); font-size:15.5px; margin-top:16px; max-width:600px;}
+
+/* ---------- ACCORDION ---------- */
+.services-page{padding:70px 0 110px;}
+.accordion{max-width:880px; margin:0 auto; display:flex; flex-direction:column; gap:18px;}
+
+.acc-item{
+  position:relative;
+  background:linear-gradient(180deg, var(--folder) 0%, var(--folder-2) 100%);
+  border-radius:2px;
+  box-shadow:0 16px 30px -18px rgba(0,0,0,0.5);
+}
+.acc-item::before{
+  content:""; position:absolute; top:-12px; left:26px; width:70px; height:14px;
+  background:var(--folder-shadow); clip-path:polygon(8% 0, 92% 0, 100% 100%, 0% 100%); opacity:0.9;
+}
+
+.acc-header{
+  display:flex; align-items:center; gap:20px; width:100%;
+  padding:26px 28px; background:none; border:none; cursor:pointer; text-align:left;
+}
+.acc-icon{width:38px; height:38px; color:var(--burgundy); flex-shrink:0;}
+.acc-title{flex:1;}
+.acc-title h3{font-size:18px; color:#211a0f; margin-bottom:4px;}
+.acc-title .acc-num{font-family:'Courier Prime',monospace; font-size:11px; color:var(--folder-shadow); letter-spacing:0.06em;}
+.acc-chevron{width:18px; height:18px; color:#4a3f2a; flex-shrink:0; transition:transform .3s ease;}
+.acc-item.open .acc-chevron{transform:rotate(180deg);}
+
+.acc-body{max-height:0; overflow:hidden; transition:max-height .4s ease;}
+.acc-body-inner{padding:0 28px 30px 86px;}
+.acc-body-inner p{font-size:14.5px; color:#3a2f1c; line-height:1.65; margin-bottom:20px; max-width:600px;}
+
+.acc-ctas{display:flex; gap:12px; flex-wrap:wrap;}
+.acc-btn{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'Inter',sans-serif; font-size:13.5px; font-weight:600;
+  padding:11px 20px; border-radius:2px; transition:all .25s ease;
+}
+.acc-btn svg{width:14px; height:14px;}
+.acc-btn.primary{background:var(--burgundy); color:var(--cream);}
+.acc-btn.primary:hover{background:var(--burgundy-dim);}
+.acc-btn.ghost{border:1px solid rgba(74,63,42,0.35); color:#3a2f1c;}
+.acc-btn.ghost:hover{border-color:var(--burgundy); color:var(--burgundy);}
+
+.closing-cta{
+  max-width:880px; margin:56px auto 0;
+  display:flex; align-items:center; justify-content:space-between; gap:30px; flex-wrap:wrap;
+  border:1px solid var(--line); padding:34px 38px; border-radius:2px;
+  background:rgba(201,164,104,0.03);
+}
+.closing-cta h2{font-size:clamp(1.3rem,2vw,1.6rem); color:var(--cream); margin-top:10px;}
+.closing-cta p{color:var(--fog); font-size:14.5px; margin-top:10px; max-width:420px;}
+.closing-cta .acc-btn{white-space:nowrap;}
+
+/* ---------- POPUP AVISO ---------- */
+.popup-overlay{
+  display:none; position:fixed; inset:0; z-index:900;
+  background:rgba(13,18,25,0.72); backdrop-filter:blur(3px);
+  align-items:center; justify-content:center; padding:24px;
+}
+.popup-overlay.show{display:flex; animation:fadeIn .3s ease;}
+@keyframes fadeIn{from{opacity:0;} to{opacity:1;}}
+
+.popup-card{
+  position:relative; max-width:420px; width:100%;
+  background:linear-gradient(180deg, var(--folder) 0%, var(--folder-2) 100%);
+  color:#241c10; border-radius:2px; padding:38px 34px 32px;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,0.7);
+  animation:popIn .35s ease;
+}
+@keyframes popIn{from{opacity:0; transform:translateY(14px) scale(.97);} to{opacity:1; transform:translateY(0) scale(1);}}
+.popup-card::before{
+  content:""; position:absolute; top:-14px; left:32px; width:80px; height:16px;
+  background:var(--folder-shadow); clip-path:polygon(8% 0, 92% 0, 100% 100%, 0% 100%); opacity:0.9;
+}
+.popup-close{
+  position:absolute; top:14px; right:16px; background:none; border:none; cursor:pointer;
+  color:#6b5b3a; font-size:20px; line-height:1; padding:4px;
+}
+.popup-close:hover{color:var(--burgundy);}
+.popup-stamp{
+  width:52px; height:52px; border:2px solid var(--burgundy); border-radius:50%;
+  display:flex; align-items:center; justify-content:center; margin-bottom:18px;
+  transform:rotate(-8deg); opacity:0.9;
+}
+.popup-stamp svg{width:24px; height:24px; color:var(--burgundy);}
+.popup-card h3{font-size:20px; color:#211a0f; margin-bottom:10px;}
+.popup-card p{font-size:14px; color:#4a3f2a; line-height:1.6; margin-bottom:24px;}
+.popup-ctas{display:flex; gap:12px; flex-wrap:wrap;}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--line); padding:34px 0;}
+.footer-inner{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;}
+.footer-cred{font-family:'Courier Prime',monospace; font-size:12px; color:var(--fog); letter-spacing:0.03em;}
+.footer-cred strong{color:var(--brass);}
+
+@media (max-width:640px){
+  .acc-body-inner{padding:0 20px 26px 20px;}
+  .acc-header{padding:22px 18px;}
+  .acc-icon{width:30px; height:30px;}
+  .closing-cta{flex-direction:column; align-items:flex-start; padding:28px 26px;}
+}
+@media (max-width:900px){
+  .navlinks{
+    position:fixed; top:42px; right:0; left:0; background:var(--ink);
+    flex-direction:column; align-items:flex-start; gap:0; border-top:1px solid var(--line);
+    max-height:0; overflow:hidden; transition:max-height .35s ease;
+  }
+  .navlinks.open{max-height:320px;}
+  .navlinks a{width:100%; padding:16px 32px; border-bottom:1px solid var(--line);}
+  .navlinks a.juez{margin:16px 32px; width:calc(100% - 64px); text-align:center;}
+  .burger{display:flex;}
+}
+</style>
+</head>
+<body>
+
+<svg class="grain" width="0" height="0">
+  <filter id="noiseFilter">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
+  </filter>
+</svg>
+<div class="grain" style="filter:url(#noiseFilter)"></div>
+
+<header>
+  <nav>
+    <div class="brand">
+      <div class="brand-text">
+        <span class="name">Alberto Casaus</span>
+        <span class="role">Detective Privado</span>
+      </div>
+    </div>
+    <button class="burger" id="burger" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="navlinks" id="navlinks">
+      <a href="index.html#inicio">Inicio</a>
+      <a href="servicios.html" class="active">Servicios</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="juezia.html" class="juez">Pregunta a JuezIA</a>
+    </div>
+  </nav>
+</header>
+
+<section class="page-header wrap">
+  <span class="eyebrow">Expedientes abiertos</span>
+  <h1>Servicios</h1>
+  <p>Siete líneas de investigación. Pulsa sobre cada una para ver en detalle cómo trabajamos, y elige si prefieres resolver antes una duda con JuezIA o contactar directamente con el detective.</p>
+</section>
+
+<section class="services-page wrap">
+  <div class="accordion" id="accordion">
+
+    <div class="acc-item">
+      <button class="acc-header">
+        <svg class="acc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+          <circle cx="17" cy="24" r="9"/><circle cx="31" cy="24" r="9" stroke-dasharray="2 2.5"/>
+        </svg>
+        <div class="acc-title"><span class="acc-num">EXP. 01</span><h3>Infidelidad de parejas</h3></div>
+        <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p>Investigación discreta ante sospechas de infidelidad. Realizamos seguimientos presenciales y recopilamos pruebas fotográficas y documentales sólidas, siempre dentro del marco legal y con el máximo respeto a la intimidad de todas las partes. El informe final puede aportarse como prueba en procesos de separación o divorcio.</p>
+          <div class="acc-ctas">
+            <a href="juezia.html" class="acc-btn ghost">Consultar duda con JuezIA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="contacto.html" class="acc-btn primary">Contactar con el detective <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-header">
+        <svg class="acc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M24 4c-8 0-14 6.2-14 14 0 10.5 14 26 14 26s14-15.5 14-26c0-7.8-6-14-14-14z"/><circle cx="24" cy="18" r="5"/>
+        </svg>
+        <div class="acc-title"><span class="acc-num">EXP. 02</span><h3>Localización de personas</h3></div>
+        <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p>Búsqueda y localización de personas desaparecidas, herederos, deudores o familiares con los que se ha perdido el contacto. Combinamos fuentes públicas, análisis documental y trabajo de campo para dar con el paradero actual de la persona, dentro de los límites que marca la ley.</p>
+          <div class="acc-ctas">
+            <a href="juezia.html" class="acc-btn ghost">Consultar duda con JuezIA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="contacto.html" class="acc-btn primary">Contactar con el detective <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-header">
+        <svg class="acc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="14" y="8" width="20" height="34" rx="2"/><path d="M19 8v-2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v2"/><path d="M24 18v8M20 22h8"/><path d="M18 34c3-3 9-3 12 0" stroke-dasharray="2 2.5"/>
+        </svg>
+        <div class="acc-title"><span class="acc-num">EXP. 03</span><h3>Seguimiento de bajas laborales</h3></div>
+        <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p>Verificación discreta de actividades incompatibles con la incapacidad temporal declarada. El informe, con soporte fotográfico y videográfico, tiene validez para presentarlo ante la empresa, la mutua o en un procedimiento judicial.</p>
+          <div class="acc-ctas">
+            <a href="juezia.html" class="acc-btn ghost">Consultar duda con JuezIA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="contacto.html" class="acc-btn primary">Contactar con el detective <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-header">
+        <svg class="acc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M14 40c0-8 4-11 4-17a6 6 0 1 1 12 0c0 6 4 9 4 17"/><path d="M18 40h12"/>
+        </svg>
+        <div class="acc-title"><span class="acc-num">EXP. 04</span><h3>Conductas dudosas de hijos</h3></div>
+        <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p>Seguimiento discreto ante sospechas de consumo de sustancias, malas compañías o comportamientos de riesgo en menores y jóvenes. Ofrecemos a los padres información objetiva y contrastada para poder actuar con conocimiento de causa.</p>
+          <div class="acc-ctas">
+            <a href="juezia.html" class="acc-btn ghost">Consultar duda con JuezIA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="contacto.html" class="acc-btn primary">Contactar con el detective <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-header">
+        <svg class="acc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M6 24c4-9 12-14 18-14s14 5 18 14c-4 9-12 14-18 14S10 33 6 24z"/><circle cx="24" cy="24" r="5"/><line x1="8" y1="8" x2="40" y2="40"/>
+        </svg>
+        <div class="acc-title"><span class="acc-num">EXP. 05</span><h3>Acoso y contravigilancia</h3></div>
+        <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p>Detección de seguimientos, escuchas o vigilancia no autorizada, y protección frente al acoso físico o digital. Realizamos una auditoría discreta de tu entorno (vehículo, domicilio, dispositivos) y, si procede, aportamos pruebas para denunciar la situación.</p>
+          <div class="acc-ctas">
+            <a href="juezia.html" class="acc-btn ghost">Consultar duda con JuezIA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="contacto.html" class="acc-btn primary">Contactar con el detective <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-header">
+        <svg class="acc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M10 30c0-7 6-12 14-12s14 5 14 12"/><path d="M6 40h36"/><circle cx="24" cy="12" r="6"/>
+        </svg>
+        <div class="acc-title"><span class="acc-num">EXP. 06</span><h3>Pensión alimenticia y custodia</h3></div>
+        <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p>Informes periciales sobre el cumplimiento de obligaciones económicas y régimen de custodia de menores. Verificamos situaciones como ocultación de ingresos, incumplimiento del régimen de visitas o cambios no comunicados de domicilio, con validez ante los tribunales.</p>
+          <div class="acc-ctas">
+            <a href="juezia.html" class="acc-btn ghost">Consultar duda con JuezIA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="contacto.html" class="acc-btn primary">Contactar con el detective <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-header">
+        <svg class="acc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="10" y="6" width="28" height="36" rx="1"/><line x1="16" y1="16" x2="32" y2="16"/><line x1="16" y1="23" x2="32" y2="23"/><line x1="16" y1="30" x2="26" y2="30"/>
+        </svg>
+        <div class="acc-title"><span class="acc-num">EXP. 07</span><h3>Propiedad intelectual</h3></div>
+        <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p>Investigación de falsificaciones, competencia desleal y usos no autorizados de marcas, patentes o derechos de autor. Documentamos el uso indebido con pruebas admisibles para reclamaciones civiles o denuncias ante los organismos competentes.</p>
+          <div class="acc-ctas">
+            <a href="juezia.html" class="acc-btn ghost">Consultar duda con JuezIA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="contacto.html" class="acc-btn primary">Contactar con el detective <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="closing-cta">
+    <div>
+      <span class="eyebrow">¿No encuentras tu caso?</span>
+      <h2>Cuéntanoslo directamente</h2>
+      <p>Si tu situación no encaja del todo en ninguno de estos expedientes, escríbenos y lo estudiamos igualmente.</p>
+    </div>
+    <a href="contacto.html" class="acc-btn primary">Ir a Contacto <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup-card">
+    <button class="popup-close" id="popupClose" aria-label="Cerrar">×</button>
+    <div class="popup-stamp">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v6l4 2"/></svg>
+    </div>
+    <h3>¿Sigues con dudas?</h3>
+    <p>Llevas un rato mirando los servicios. Si quieres, cuéntanos tu caso directamente y te decimos cómo podemos ayudarte, sin compromiso.</p>
+    <div class="popup-ctas">
+      <a href="contacto.html" class="acc-btn primary">Contactar ahora <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <button class="acc-btn ghost" id="popupDismiss" type="button">Seguir mirando</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-cred"><strong>Detective Privado Acreditado:</strong> Alberto Casaus</div>
+    <div class="footer-cred">© 2026 — Todas las investigaciones se realizan conforme a la Ley 5/2014 de Seguridad Privada</div>
+  </div>
+</footer>
+
+<script>
+const burger = document.getElementById('burger');
+const navlinks = document.getElementById('navlinks');
+burger.addEventListener('click', () => navlinks.classList.toggle('open'));
+
+document.querySelectorAll('.acc-item').forEach(item => {
+  const header = item.querySelector('.acc-header');
+  const body = item.querySelector('.acc-body');
+  header.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    if(isOpen){
+      body.style.maxHeight = null;
+      item.classList.remove('open');
+    } else {
+      body.style.maxHeight = body.scrollHeight + 'px';
+      item.classList.add('open');
+    }
+  });
+});
+
+// Popup de aviso tras 20 minutos en la página
+const popupOverlay = document.getElementById('popupOverlay');
+const popupClose = document.getElementById('popupClose');
+const popupDismiss = document.getElementById('popupDismiss');
+const TIEMPO_AVISO = 20 * 60 * 1000; // 20 minutos
+
+function showPopup(){
+  if(sessionStorage.getItem('avisoContactoMostrado')) return;
+  popupOverlay.classList.add('show');
+  sessionStorage.setItem('avisoContactoMostrado', '1');
+}
+const popupTimer = setTimeout(showPopup, TIEMPO_AVISO);
+
+function closePopup(){
+  popupOverlay.classList.remove('show');
+}
+popupClose.addEventListener('click', closePopup);
+popupDismiss.addEventListener('click', closePopup);
+popupOverlay.addEventListener('click', (e) => {
+  if(e.target === popupOverlay) closePopup();
+});
+</script>
+
+</body>
+</html>
