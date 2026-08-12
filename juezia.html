@@ -407,6 +407,7 @@ askBtn.addEventListener('click', async () => {
   }catch(err){
     loading.classList.remove('show');
     askBtn.disabled = false;
+    errorCard.textContent = 'Error: ' + err.message;
     errorCard.classList.add('show');
   }
 });
