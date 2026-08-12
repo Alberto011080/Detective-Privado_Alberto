@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Orientación Legal | Alberto Casaus — Detective Privado</title>
-<meta name="description" content="Orientación legal en español: consulta con IA (fundamento legal, explicación cotidiana y resumen) o busca directamente en el Código Penal y Civil. Una herramienta de Alberto Casaus, detective privado.">
+<meta name="description" content="Orientación legal en español: busca directamente en el resumen del Código Penal y Civil relacionado con investigación privada. Una herramienta de Alberto Casaus, detective privado.">
 <link rel="canonical" href="https://alberto011080.github.io/Detective-Privado_Alberto/juezia.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230d1219'/%3E%3Ccircle cx='50' cy='48' r='30' fill='%237a232d'/%3E%3Ccircle cx='50' cy='40' r='7' fill='%23f3ecdb'/%3E%3Cpath d='M44 46 L56 46 L51 64 L49 64 Z' fill='%23f3ecdb'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Orientación Legal | Alberto Casaus">
-<meta property="og:description" content="Plantea tu duda legal y recibe una respuesta clara, en español, basada en la normativa española.">
+<meta property="og:description" content="Busca directamente en el resumen del Código Penal y Civil español, sin necesidad de IA.">
 <meta property="og:url" content="https://alberto011080.github.io/Detective-Privado_Alberto/juezia.html">
 <meta property="og:locale" content="es_ES">
 <style>
@@ -88,116 +88,12 @@ nav{max-width:var(--maxw); margin:0 auto; padding:7px 32px; display:flex; align-
 .tool-section{padding:70px 0 110px;}
 .tool-grid{display:grid; grid-template-columns:1fr; gap:34px; max-width:800px; margin:0 auto;}
 
-.ask-card{
-  position:relative;
-  background:linear-gradient(180deg, var(--folder) 0%, var(--folder-2) 100%);
-  color:#241c10; border-radius:2px; padding:40px 38px 34px;
-  box-shadow:0 24px 46px -22px rgba(0,0,0,0.6);
-}
-.ask-card::before{
-  content:""; position:absolute; top:-14px; left:36px; width:90px; height:16px;
-  background:var(--folder-shadow); clip-path:polygon(8% 0, 92% 0, 100% 100%, 0% 100%); opacity:0.9;
-}
-.ask-card .head{display:flex; align-items:center; justify-content:space-between; margin-bottom:22px;}
-.ask-card .head span{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:0.08em; color:var(--folder-shadow);}
-.ask-card h3{font-size:19px; color:#211a0f;}
-
-.ask-card label{
-  display:block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:0.08em;
-  text-transform:uppercase; color:#6b5b3a; margin-bottom:8px;
-}
-.ask-card textarea{
-  width:100%; border:none; border-bottom:1.5px solid rgba(74,63,42,0.35);
-  background:transparent; font-family:'Inter',sans-serif; font-size:15px; color:#241c10;
-  padding:8px 2px; outline:none; resize:vertical; min-height:90px; line-height:1.5;
-  transition:border-color .25s ease;
-}
-.ask-card textarea::placeholder{color:rgba(74,63,42,0.5);}
-.ask-card textarea:focus{border-color:var(--burgundy);}
-.field-error{display:none; font-size:11.5px; color:#a33; margin-top:6px; font-family:'Courier Prime',monospace;}
-.field-error.show{display:block;}
-
-.chips{display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 26px;}
-.chip{
-  font-family:'Courier Prime',monospace; font-size:11.5px; color:#4a3f2a;
-  border:1px solid rgba(74,63,42,0.3); padding:6px 12px; border-radius:20px;
-  cursor:pointer; background:transparent; transition:all .2s ease;
-}
-.chip:hover{border-color:var(--burgundy); color:var(--burgundy);}
-
-.ask-btn{
-  display:inline-flex; align-items:center; gap:10px; background:var(--burgundy); color:var(--cream);
-  border:none; padding:14px 30px; font-size:14px; font-weight:600; letter-spacing:0.02em;
-  border-radius:2px; cursor:pointer; transition:background .25s ease; font-family:'Inter',sans-serif;
-}
-.ask-btn:hover{background:var(--burgundy-dim);}
-.ask-btn:disabled{opacity:0.6; cursor:default;}
-.ask-btn svg{width:15px; height:15px;}
-
-/* ---------- LOADING ---------- */
-.loading{
-  display:none; align-items:center; gap:14px; padding:30px 0 6px;
-  font-family:'Courier Prime',monospace; font-size:13px; color:var(--fog);
-}
-.loading.show{display:flex;}
-.spinner{
-  width:20px; height:20px; border:2px solid var(--line); border-top-color:var(--brass);
-  border-radius:50%; animation:spin 0.9s linear infinite;
-}
-@keyframes spin{to{transform:rotate(360deg);}}
-
-/* ---------- RESULT ---------- */
-.result-card{
-  display:none;
-  position:relative;
-  background:linear-gradient(180deg, var(--folder) 0%, var(--folder-2) 100%);
-  color:#241c10; border-radius:2px; padding:40px 38px 36px;
-  box-shadow:0 24px 46px -22px rgba(0,0,0,0.6);
-}
-.result-card::before{
-  content:""; position:absolute; top:-14px; left:36px; width:90px; height:16px;
-  background:var(--folder-shadow); clip-path:polygon(8% 0, 92% 0, 100% 100%, 0% 100%); opacity:0.9;
-}
-.result-card.show{display:block; animation:fadeUp .5s ease;}
-@keyframes fadeUp{from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:translateY(0);}}
-
-.result-card .head{display:flex; align-items:center; justify-content:space-between; margin-bottom:24px;}
-.result-card .head span{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:0.08em; color:var(--folder-shadow);}
-.result-card .head h3{font-size:19px; color:#211a0f;}
-
-.result-block{padding:20px 0; border-top:1px solid rgba(74,63,42,0.2);}
-.result-block:first-of-type{border-top:none; padding-top:0;}
-.result-block .r-eyebrow{
-  font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
-  color:var(--burgundy); font-weight:700; margin-bottom:10px; display:flex; align-items:center; gap:8px;
-}
-.result-block .r-eyebrow svg{width:15px; height:15px;}
-.result-block p{font-size:14.5px; color:#3a2f1c; line-height:1.65; white-space:pre-line;}
-
 .disclaimer{
   margin-top:26px; padding-top:20px; border-top:1px solid rgba(74,63,42,0.2);
   font-size:12px; color:#6b5b3a; font-style:italic; line-height:1.6;
 }
 
-.error-card{
-  display:none; padding:20px 24px; border:1px solid var(--burgundy); border-radius:2px;
-  background:rgba(122,35,45,0.08); color:var(--fog); font-size:14px;
-}
-.error-card.show{display:block;}
-
-.new-question{
-  display:none; margin-top:22px; font-family:'Courier Prime',monospace; font-size:12.5px;
-  color:var(--burgundy); font-weight:700; cursor:pointer; background:none; border:none;
-}
-.new-question.show{display:inline-flex; align-items:center; gap:6px;}
-
 /* ---------- BUSCADOR DE CÓDIGOS (SIN IA) ---------- */
-.divider-or{
-  display:flex; align-items:center; gap:16px; color:var(--fog);
-  font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:0.15em; text-transform:uppercase;
-}
-.divider-or::before, .divider-or::after{content:""; flex:1; height:1px; background:var(--line);}
-
 .codes-card{
   position:relative;
   background:linear-gradient(180deg, var(--folder) 0%, var(--folder-2) 100%);
@@ -266,7 +162,7 @@ footer{border-top:1px solid var(--line); padding:34px 0;}
   .navlinks a{width:100%; padding:16px 32px; border-bottom:1px solid var(--line);}
   .navlinks a.juez{margin:16px 32px; width:calc(100% - 64px); text-align:center;}
   .burger{display:flex;}
-  .ask-card, .result-card{padding:30px 24px 28px;}
+  .codes-card{padding:30px 24px 28px;}
 }
 </style>
 </head>
@@ -311,84 +207,13 @@ footer{border-top:1px solid var(--line); padding:34px 0;}
     <div>
       <span class="eyebrow">Expediente digital</span>
       <h1>Orientación Legal</h1>
-      <p>Resuelve una primera duda legal antes de abrir el caso: pregúntale a JuezIA en lenguaje corriente, o busca directamente en el resumen del Código Penal y Civil, sin necesidad de IA.</p>
+      <p>Resuelve una primera duda legal antes de abrir el caso. Busca directamente en el resumen del Código Penal y Civil español relacionado con nuestros servicios.</p>
     </div>
   </div>
 </section>
 
 <section class="tool-section wrap">
   <div class="tool-grid">
-
-    <div class="ask-card">
-      <div class="head">
-        <h3>Nueva consulta</h3>
-        <span>EXP. CONSULTA</span>
-      </div>
-
-      <label for="pregunta">Tu pregunta legal</label>
-      <textarea id="pregunta" placeholder="Ej: ¿Es legal grabar a alguien en la calle sin su consentimiento?"></textarea>
-      <span class="field-error" id="preguntaError">Escribe tu duda antes de continuar.</span>
-
-      <div class="chips">
-        <button class="chip" type="button">¿Puedo grabar a alguien sin su consentimiento?</button>
-        <button class="chip" type="button">¿Qué pruebas son válidas en un divorio?</button>
-        <button class="chip" type="button">¿Cómo funciona la custodia compartida?</button>
-        <button class="chip" type="button">¿Es legal instalar una cámara en mi portal?</button>
-      </div>
-
-      <button class="ask-btn" id="askBtn">
-        Preguntar a JuezIA
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </button>
-
-      <div class="loading" id="loading">
-        <div class="spinner"></div>
-        <span>Consultando normativa y jurisprudencia…</span>
-      </div>
-    </div>
-
-    <div class="error-card" id="errorCard">
-      No se ha podido completar la consulta. Comprueba tu conexión e inténtalo de nuevo.
-    </div>
-
-    <div class="result-card" id="resultCard">
-      <div class="head">
-        <h3 id="resultTitle">Respuesta de JuezIA</h3>
-        <span>EXP. RESUELTO</span>
-      </div>
-
-      <div class="result-block">
-        <div class="r-eyebrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7l8-4z"/></svg>
-          Fundamento legal
-        </div>
-        <p id="fundamento"></p>
-      </div>
-
-      <div class="result-block">
-        <div class="r-eyebrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
-          En lenguaje cotidiano
-        </div>
-        <p id="desglose"></p>
-      </div>
-
-      <div class="result-block">
-        <div class="r-eyebrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg>
-          Resumen y conclusión
-        </div>
-        <p id="resumen"></p>
-      </div>
-
-      <div class="disclaimer">Esta es una orientación general y resumida. Para tu caso concreto, consulta con un abogado o graduado social colegiado, o contacta con Alberto Casaus.</div>
-
-      <button class="new-question" id="newQuestion">
-        ← Hacer otra consulta
-      </button>
-    </div>
-
-    <div class="divider-or">o consulta sin IA</div>
 
     <div class="codes-card">
       <div class="head">
@@ -426,74 +251,6 @@ footer{border-top:1px solid var(--line); padding:34px 0;}
 const burger = document.getElementById('burger');
 const navlinks = document.getElementById('navlinks');
 burger.addEventListener('click', () => navlinks.classList.toggle('open'));
-
-const textarea = document.getElementById('pregunta');
-const askBtn = document.getElementById('askBtn');
-const loading = document.getElementById('loading');
-const resultCard = document.getElementById('resultCard');
-const errorCard = document.getElementById('errorCard');
-const preguntaError = document.getElementById('preguntaError');
-const newQuestion = document.getElementById('newQuestion');
-
-document.querySelectorAll('.chip').forEach(chip => {
-  chip.addEventListener('click', () => {
-    textarea.value = chip.textContent;
-    textarea.focus();
-    preguntaError.classList.remove('show');
-  });
-});
-
-newQuestion.addEventListener('click', () => {
-  resultCard.classList.remove('show');
-  textarea.value = '';
-  textarea.focus();
-  window.scrollTo({top: document.querySelector('.ask-card').offsetTop - 100, behavior:'smooth'});
-});
-
-// URL de la Edge Function de Supabase desplegada para JuezIA
-const SUPABASE_FUNCTION_URL = "https://igwebtimdpvdkpjestbc.supabase.co/functions/v1/juezia";
-
-async function askJuezIA(pregunta){
-  const response = await fetch(SUPABASE_FUNCTION_URL, {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({ pregunta })
-  });
-  const data = await response.json();
-  if(data.error){ throw new Error(data.error); }
-  return data;
-}
-
-askBtn.addEventListener('click', async () => {
-  const pregunta = textarea.value.trim();
-  if(!pregunta){
-    preguntaError.classList.add('show');
-    textarea.focus();
-    return;
-  }
-  preguntaError.classList.remove('show');
-  errorCard.classList.remove('show');
-  resultCard.classList.remove('show');
-  loading.classList.add('show');
-  askBtn.disabled = true;
-
-  try{
-    const res = await askJuezIA(pregunta);
-    document.getElementById('fundamento').textContent = res.fundamento || '';
-    document.getElementById('desglose').textContent = res.desglose || '';
-    document.getElementById('resumen').textContent = res.resumen || '';
-    loading.classList.remove('show');
-    askBtn.disabled = false;
-    resultCard.classList.add('show');
-    newQuestion.classList.add('show');
-    resultCard.scrollIntoView({behavior:'smooth', block:'start'});
-  }catch(err){
-    loading.classList.remove('show');
-    askBtn.disabled = false;
-    errorCard.textContent = 'Error: ' + err.message;
-    errorCard.classList.add('show');
-  }
-});
 
 // ---------- BUSCADOR DE CÓDIGOS (SIN IA) ----------
 const CODIGOS = [
