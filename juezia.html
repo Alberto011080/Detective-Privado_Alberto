@@ -367,9 +367,8 @@ newQuestion.addEventListener('click', () => {
   window.scrollTo({top: document.querySelector('.ask-card').offsetTop - 100, behavior:'smooth'});
 });
 
-// URL de tu Edge Function de Supabase. Sustitúyela por la tuya al desplegarla:
-// https://TU-PROYECTO.functions.supabase.co/juezia
-const SUPABASE_FUNCTION_URL = "https://TU-PROYECTO.functions.supabase.co/juezia";
+// URL de la Edge Function de Supabase desplegada para JuezIA
+const SUPABASE_FUNCTION_URL = "https://igwebtimdpvdkpjestbc.supabase.co/functions/v1/juezia";
 
 async function askJuezIA(pregunta){
   const response = await fetch(SUPABASE_FUNCTION_URL, {
