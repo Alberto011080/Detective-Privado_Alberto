@@ -351,6 +351,9 @@ const form = document.getElementById('contactForm');
 const confirmCard = document.getElementById('confirmCard');
 const consentBox = document.getElementById('consent');
 const consentError = document.getElementById('consentError');
+const submitBtn = form.querySelector('.submit-btn');
+
+const FORMSPREE_URL = "https://formspree.io/f/xjybreak";
 
 function checkField(id){
   const wrap = document.querySelector('[data-field="'+id+'"]');
@@ -360,7 +363,7 @@ function checkField(id){
   return true;
 }
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const nombreOk = checkField('nombre');
@@ -379,9 +382,30 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  form.style.display = 'none';
-  confirmCard.classList.add('show');
-  confirmCard.scrollIntoView({behavior:'smooth', block:'center'});
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Enviando…';
+
+  try {
+    const response = await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    });
+
+    if (response.ok) {
+      form.style.display = 'none';
+      confirmCard.classList.add('show');
+      confirmCard.scrollIntoView({behavior:'smooth', block:'center'});
+    } else {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Enviar consulta';
+      alert('No se ha podido enviar la consulta. Inténtalo de nuevo o escribe directamente a al100180@gmail.com.');
+    }
+  } catch (err) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Enviar consulta';
+    alert('No se ha podido enviar la consulta. Comprueba tu conexión e inténtalo de nuevo.');
+  }
 });
 </script>
 
