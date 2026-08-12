@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JuezIA — Consulta legal con IA | Alberto Casaus</title>
-<meta name="description" content="JuezIA resuelve tus dudas legales en español: fundamento legal, explicación cotidiana y resumen con conclusiones. Una herramienta de Alberto Casaus, detective privado.">
+<title>Orientación Legal | Alberto Casaus — Detective Privado</title>
+<meta name="description" content="Orientación legal en español: consulta con IA (fundamento legal, explicación cotidiana y resumen) o busca directamente en el Código Penal y Civil. Una herramienta de Alberto Casaus, detective privado.">
 <link rel="canonical" href="https://alberto011080.github.io/Detective-Privado_Alberto/juezia.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230d1219'/%3E%3Ccircle cx='50' cy='48' r='30' fill='%237a232d'/%3E%3Ccircle cx='50' cy='40' r='7' fill='%23f3ecdb'/%3E%3Cpath d='M44 46 L56 46 L51 64 L49 64 Z' fill='%23f3ecdb'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
-<meta property="og:title" content="JuezIA — Consulta legal con IA">
+<meta property="og:title" content="Orientación Legal | Alberto Casaus">
 <meta property="og:description" content="Plantea tu duda legal y recibe una respuesta clara, en español, basada en la normativa española.">
 <meta property="og:url" content="https://alberto011080.github.io/Detective-Privado_Alberto/juezia.html">
 <meta property="og:locale" content="es_ES">
@@ -191,6 +191,65 @@ nav{max-width:var(--maxw); margin:0 auto; padding:7px 32px; display:flex; align-
 }
 .new-question.show{display:inline-flex; align-items:center; gap:6px;}
 
+/* ---------- BUSCADOR DE CÓDIGOS (SIN IA) ---------- */
+.divider-or{
+  display:flex; align-items:center; gap:16px; color:var(--fog);
+  font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:0.15em; text-transform:uppercase;
+}
+.divider-or::before, .divider-or::after{content:""; flex:1; height:1px; background:var(--line);}
+
+.codes-card{
+  position:relative;
+  background:linear-gradient(180deg, var(--folder) 0%, var(--folder-2) 100%);
+  color:#241c10; border-radius:2px; padding:40px 38px 38px;
+  box-shadow:0 24px 46px -22px rgba(0,0,0,0.6);
+}
+.codes-card::before{
+  content:""; position:absolute; top:-14px; left:36px; width:90px; height:16px;
+  background:var(--folder-shadow); clip-path:polygon(8% 0, 92% 0, 100% 100%, 0% 100%); opacity:0.9;
+}
+.codes-card .head{display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;}
+.codes-card .head span{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:0.08em; color:var(--folder-shadow);}
+.codes-card h3{font-size:19px; color:#211a0f;}
+.codes-card .sub{font-size:13.5px; color:#6b5b3a; margin-bottom:22px;}
+
+.codes-controls{display:flex; gap:12px; margin-bottom:24px; flex-wrap:wrap;}
+.codes-search{
+  flex:1; min-width:200px; border:none; border-bottom:1.5px solid rgba(74,63,42,0.35);
+  background:transparent; font-family:'Inter',sans-serif; font-size:15px; color:#241c10;
+  padding:8px 2px; outline:none; transition:border-color .25s ease;
+}
+.codes-search::placeholder{color:rgba(74,63,42,0.5);}
+.codes-search:focus{border-color:var(--burgundy);}
+.codes-filter{display:flex; gap:6px;}
+.codes-filter button{
+  font-family:'Courier Prime',monospace; font-size:11.5px; color:#4a3f2a;
+  border:1px solid rgba(74,63,42,0.3); padding:7px 14px; border-radius:20px;
+  cursor:pointer; background:transparent; transition:all .2s ease;
+}
+.codes-filter button.active{background:var(--burgundy); border-color:var(--burgundy); color:var(--cream);}
+
+.codes-results{display:flex; flex-direction:column; gap:14px; max-height:520px; overflow-y:auto; padding-right:4px;}
+.codes-empty{font-size:13.5px; color:#6b5b3a; padding:10px 0;}
+
+.code-entry{border-top:1px solid rgba(74,63,42,0.2); padding-top:14px;}
+.code-entry:first-child{border-top:none; padding-top:0;}
+.code-entry-head{display:flex; align-items:center; gap:10px; margin-bottom:6px; flex-wrap:wrap;}
+.code-badge{
+  font-family:'Courier Prime',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase;
+  padding:3px 9px; border-radius:20px; font-weight:700;
+}
+.code-badge.penal{background:rgba(122,35,45,0.12); color:var(--burgundy);}
+.code-badge.civil{background:rgba(138,113,63,0.15); color:var(--brass-dim);}
+.code-entry-ref{font-family:'Courier Prime',monospace; font-size:11.5px; color:var(--folder-shadow);}
+.code-entry h4{font-size:15.5px; color:#211a0f; margin-bottom:4px;}
+.code-entry p{font-size:13.5px; color:#3a2f1c; line-height:1.55;}
+
+.codes-note{
+  margin-top:22px; padding-top:18px; border-top:1px solid rgba(74,63,42,0.2);
+  font-size:11.5px; color:#6b5b3a; font-style:italic; line-height:1.6;
+}
+
 /* ---------- FOOTER ---------- */
 footer{border-top:1px solid var(--line); padding:34px 0;}
 .footer-inner{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;}
@@ -235,7 +294,7 @@ footer{border-top:1px solid var(--line); padding:34px 0;}
       <a href="index.html#inicio">Inicio</a>
       <a href="servicios.html">Servicios</a>
       <a href="contacto.html">Contacto</a>
-      <a href="juezia.html" class="juez active">Pregunta a JuezIA</a>
+      <a href="juezia.html" class="juez active">Orientación Legal</a>
     </div>
   </nav>
 </header>
@@ -251,8 +310,8 @@ footer{border-top:1px solid var(--line); padding:34px 0;}
     </svg>
     <div>
       <span class="eyebrow">Expediente digital</span>
-      <h1>JuezIA</h1>
-      <p>Plantea tu duda legal en lenguaje corriente. JuezIA la resuelve apoyándose en la normativa y jurisprudencia española: primero el fundamento, después una explicación cotidiana, y por último un resumen con conclusiones.</p>
+      <h1>Orientación Legal</h1>
+      <p>Resuelve una primera duda legal antes de abrir el caso: pregúntale a JuezIA en lenguaje corriente, o busca directamente en el resumen del Código Penal y Civil, sin necesidad de IA.</p>
     </div>
   </div>
 </section>
@@ -262,7 +321,7 @@ footer{border-top:1px solid var(--line); padding:34px 0;}
 
     <div class="ask-card">
       <div class="head">
-        <h3>Plantea tu duda</h3>
+        <h3>Nueva consulta</h3>
         <span>EXP. CONSULTA</span>
       </div>
 
@@ -322,11 +381,35 @@ footer{border-top:1px solid var(--line); padding:34px 0;}
         <p id="resumen"></p>
       </div>
 
-      <div class="disclaimer">JuezIA ofrece orientación informativa general y no sustituye el asesoramiento de un abogado o graduado social colegiado. Para tu caso concreto, contacta con Alberto Casaus.</div>
+      <div class="disclaimer">Esta es una orientación general y resumida. Para tu caso concreto, consulta con un abogado o graduado social colegiado, o contacta con Alberto Casaus.</div>
 
       <button class="new-question" id="newQuestion">
         ← Hacer otra consulta
       </button>
+    </div>
+
+    <div class="divider-or">o consulta sin IA</div>
+
+    <div class="codes-card">
+      <div class="head">
+        <h3>Buscador de Código Penal y Civil</h3>
+        <span>SIN IA</span>
+      </div>
+      <p class="sub">Resumen orientativo de los artículos más relacionados con nuestros servicios. Busca por palabra clave (ej. "custodia", "acoso", "grabación").</p>
+
+      <div class="codes-controls">
+        <input type="text" class="codes-search" id="codesSearch" placeholder="Buscar por palabra clave...">
+        <div class="codes-filter" id="codesFilter">
+          <button class="active" data-filter="todos">Todos</button>
+          <button data-filter="penal">Código Penal</button>
+          <button data-filter="civil">Código Civil</button>
+        </div>
+      </div>
+
+      <div class="codes-results" id="codesResults"></div>
+      <div class="codes-empty" id="codesEmpty" style="display:none;">No hay resultados para esa búsqueda. Prueba con otra palabra clave.</div>
+
+      <div class="codes-note">Resúmenes orientativos y no exhaustivos, elaborados para facilitar una primera orientación. No sustituyen el texto oficial del BOE ni el asesoramiento de un abogado colegiado.</div>
     </div>
 
   </div>
@@ -411,6 +494,80 @@ askBtn.addEventListener('click', async () => {
     errorCard.classList.add('show');
   }
 });
+
+// ---------- BUSCADOR DE CÓDIGOS (SIN IA) ----------
+const CODIGOS = [
+  {codigo:'penal', ref:'Art. 197-201', titulo:'Descubrimiento y revelación de secretos', resumen:'Castiga apoderarse de mensajes, grabaciones o datos privados sin consentimiento, así como interceptar comunicaciones o vigilar a alguien de forma que vulnere su intimidad. Es la base de muchos casos de investigación de infidelidades: hay que actuar sin invadir la intimidad de terceros.'},
+  {codigo:'penal', ref:'Art. 172 ter', titulo:'Delito de acoso (stalking)', resumen:'Sanciona la vigilancia, persecución o intento de contacto reiterado que altere gravemente el día a día de la víctima sin estar legítimamente autorizado. Aplicable a situaciones de acoso que a veces motivan una investigación de contravigilancia.'},
+  {codigo:'penal', ref:'Art. 202-204', titulo:'Allanamiento de morada', resumen:'Entrar o permanecer en el domicilio de otra persona sin su consentimiento está penado, incluso si se hace con fines de investigación. Cualquier seguimiento debe evitar el acceso a espacios privados de la persona investigada.'},
+  {codigo:'penal', ref:'Art. 205-216', titulo:'Injurias y calumnias', resumen:'Imputar hechos falsos que dañen la reputación de alguien (calumnia) o atentar contra su dignidad (injuria) puede acarrear responsabilidad penal. Relevante al aportar informes: los hechos deben estar contrastados y probados.'},
+  {codigo:'penal', ref:'Art. 169-171', titulo:'Amenazas', resumen:'Anunciar un mal futuro a otra persona con intención de causarle inquietud está penado, con distinta gravedad según sea condicional o no. Puede formar parte de situaciones de acoso investigadas.'},
+  {codigo:'penal', ref:'Art. 172', titulo:'Coacciones', resumen:'Impedir con violencia que otra persona haga algo permitido por la ley, u obligarla a hacer algo en contra de su voluntad, constituye coacción.'},
+  {codigo:'penal', ref:'Art. 234-236', titulo:'Hurto', resumen:'Tomar bienes ajenos sin violencia ni intimidación, con ánimo de lucro. La cuantía sustraída determina si es delito leve o delito ordinario.'},
+  {codigo:'penal', ref:'Art. 237-241', titulo:'Robo', resumen:'A diferencia del hurto, implica fuerza en las cosas o violencia/intimidación en las personas para apoderarse de un bien ajeno.'},
+  {codigo:'penal', ref:'Art. 253-254', titulo:'Apropiación indebida', resumen:'Quedarse con dinero, bienes o valores que se recibieron para un fin distinto (por ejemplo, en gestión de una empresa o comunidad) constituye este delito.'},
+  {codigo:'penal', ref:'Art. 248-251 bis', titulo:'Estafa', resumen:'Engañar a otra persona para que realice un acto de disposición patrimonial en perjuicio propio o de tercero, con ánimo de lucro para el estafador.'},
+  {codigo:'penal', ref:'Art. 270-272', titulo:'Delitos contra la propiedad intelectual', resumen:'Reproducir, plagiar, distribuir o comunicar públicamente una obra sin autorización del titular de los derechos, con ánimo de obtener un beneficio económico, es delito.'},
+  {codigo:'penal', ref:'Art. 273-277', titulo:'Delitos contra la propiedad industrial', resumen:'Fabricar, usar o comercializar productos amparados por una patente o marca registrada sin consentimiento del titular, con fines industriales o comerciales.'},
+  {codigo:'penal', ref:'Art. 226-233', titulo:'Delitos contra los derechos y deberes familiares', resumen:'Incluye el abandono de familia, el impago de pensiones establecidas judicialmente durante dos meses consecutivos o cuatro no consecutivos, y la sustracción de menores.'},
+  {codigo:'penal', ref:'Art. 147-152', titulo:'Lesiones', resumen:'Causar un menoscabo a la integridad corporal o a la salud física o mental de otra persona, con distinta gravedad según el medio empleado y el resultado.'},
+  {codigo:'penal', ref:'Art. 395-399', titulo:'Falsificación de documentos', resumen:'Alterar, simular o mentir en un documento público, oficial o privado, o usar uno falso a sabiendas, con relevancia jurídica o probatoria.'},
+
+  {codigo:'civil', ref:'Art. 92-94', titulo:'Guarda y custodia de los hijos', resumen:'Regula cómo se organiza el cuidado de los menores tras una separación o divorcio, incluyendo la custodia compartida y el régimen de visitas del progenitor no custodio.'},
+  {codigo:'civil', ref:'Art. 142-153', titulo:'Pensión alimenticia (alimentos entre parientes)', resumen:'Establece la obligación de proporcionar sustento, habitación, vestido y asistencia médica entre determinados familiares, y cómo se fija y modifica su cuantía.'},
+  {codigo:'civil', ref:'Art. 154-171', titulo:'Patria potestad', resumen:'Conjunto de derechos y deberes de los progenitores hacia los hijos menores no emancipados: velar por ellos, tenerlos en su compañía, educarlos y administrar sus bienes.'},
+  {codigo:'civil', ref:'Art. 81-84', titulo:'Separación matrimonial', resumen:'Regula los requisitos y el procedimiento para la separación de los cónyuges sin disolver el vínculo matrimonial.'},
+  {codigo:'civil', ref:'Art. 85-89', titulo:'Divorcio', resumen:'Establece la disolución del matrimonio, que en España puede solicitarse sin necesidad de alegar causa, transcurridos los plazos legales mínimos.'},
+  {codigo:'civil', ref:'Art. 90-91', titulo:'Convenio regulador y medidas judiciales', resumen:'El convenio regulador recoge los acuerdos de la pareja sobre custodia, visitas, pensión y vivienda; si no hay acuerdo, es el juez quien fija estas medidas.'},
+  {codigo:'civil', ref:'Art. 96', titulo:'Uso de la vivienda familiar', resumen:'Determina quién tiene derecho a permanecer en la vivienda familiar tras una ruptura, atendiendo prioritariamente al interés de los hijos menores.'},
+  {codigo:'civil', ref:'Art. 973-987', titulo:'Testamentos y sucesiones', resumen:'Regula cómo se dispone de los bienes tras el fallecimiento, ya sea por testamento o por sucesión legal, relevante en casos de localización de herederos.'},
+  {codigo:'civil', ref:'Art. 609-656', titulo:'Adquisición de la propiedad', resumen:'Establece las formas de adquirir bienes: ocupación, donación, sucesión y a través de ciertos contratos, además de la usucapión o prescripción adquisitiva.'},
+  {codigo:'civil', ref:'Art. 1902', titulo:'Responsabilidad civil extracontractual', resumen:'Quien por acción u omisión causa daño a otro, interviniendo culpa o negligencia, está obligado a reparar el daño causado. Es la base de muchas reclamaciones civiles.'},
+];
+
+const codesResults = document.getElementById('codesResults');
+const codesEmpty = document.getElementById('codesEmpty');
+const codesSearch = document.getElementById('codesSearch');
+const codesFilter = document.getElementById('codesFilter');
+let currentFilter = 'todos';
+
+function renderCodes(){
+  const query = codesSearch.value.trim().toLowerCase();
+  const filtered = CODIGOS.filter(item => {
+    const matchesFilter = currentFilter === 'todos' || item.codigo === currentFilter;
+    const matchesQuery = !query || item.titulo.toLowerCase().includes(query) || item.resumen.toLowerCase().includes(query) || item.ref.toLowerCase().includes(query);
+    return matchesFilter && matchesQuery;
+  });
+
+  codesResults.innerHTML = '';
+  codesEmpty.style.display = filtered.length ? 'none' : 'block';
+
+  filtered.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'code-entry';
+    div.innerHTML = `
+      <div class="code-entry-head">
+        <span class="code-badge ${item.codigo}">${item.codigo === 'penal' ? 'Código Penal' : 'Código Civil'}</span>
+        <span class="code-entry-ref">${item.ref}</span>
+      </div>
+      <h4>${item.titulo}</h4>
+      <p>${item.resumen}</p>
+    `;
+    codesResults.appendChild(div);
+  });
+}
+
+codesSearch.addEventListener('input', renderCodes);
+codesFilter.addEventListener('click', (e) => {
+  const btn = e.target.closest('button');
+  if(!btn) return;
+  codesFilter.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentFilter = btn.dataset.filter;
+  renderCodes();
+});
+
+renderCodes();
 </script>
 
 </body>
