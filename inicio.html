@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alberto Casaus | Detective Privado Acreditado en España</title>
+<meta name="description" content="Alberto Casaus, detective privado acreditado en España. Investigación discreta y con validez legal: infidelidades, localización de personas, bajas laborales, custodia, acoso y propiedad intelectual.">
+<link rel="canonical" href="https://alberto011080.github.io/Detective-Privado_Alberto/index.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230d1219'/%3E%3Ccircle cx='50' cy='48' r='30' fill='%237a232d'/%3E%3Ccircle cx='50' cy='40' r='7' fill='%23f3ecdb'/%3E%3Cpath d='M44 46 L56 46 L51 64 L49 64 Z' fill='%23f3ecdb'/%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Alberto Casaus | Detective Privado Acreditado en España">
+<meta property="og:description" content="Investigación privada discreta y con validez legal en toda España: infidelidades, localización de personas, custodia, acoso, bajas laborales y propiedad intelectual.">
+<meta property="og:url" content="https://alberto011080.github.io/Detective-Privado_Alberto/index.html">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Alberto Casaus — Detective Privado",
+  "description": "Investigación privada acreditada en España: infidelidades, localización de personas, bajas laborales, custodia, acoso y contravigilancia, propiedad intelectual.",
+  "url": "https://alberto011080.github.io/Detective-Privado_Alberto/index.html",
+  "telephone": "+34650569101",
+  "email": "al100180@gmail.com",
+  "areaServed": "ES",
+  "priceRange": "$$"
+}
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Courier+Prime:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --ink:#0d1219;
+  --ink-2:#141b25;
+  --folder:#e6dabb;
+  --folder-2:#d8c89e;
+  --folder-shadow:#a9905f;
+  --brass:#c9a468;
+  --brass-dim:#8a713f;
+  --burgundy:#7a232d;
+  --burgundy-dim:#5a1a22;
+  --cream:#f3ecdb;
+  --fog:#93a0ae;
+  --line:rgba(201,164,104,0.25);
+  --maxw:1180px;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--ink);
+  color:var(--cream);
+  font-family:'Inter',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* grain overlay */
+.grain{
+  position:fixed; inset:0; pointer-events:none; z-index:999;
+  opacity:0.05; mix-blend-mode:overlay;
+}
+
+h1,h2,h3{
+  font-family:'Fraunces', serif;
+  font-weight:600;
+  letter-spacing:-0.01em;
+}
+
+a{color:inherit; text-decoration:none;}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+
+.eyebrow{
+  font-family:'Courier Prime', monospace;
+  font-size:12.5px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--brass);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.eyebrow::before{
+  content:"";
+  width:22px; height:1px; background:var(--brass);
+  display:inline-block;
+}
+
+/* ---------- NAVBAR ---------- */
+header{
+  position:fixed; top:0; left:0; right:0; z-index:500;
+  background:rgba(13,18,25,0.86);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+nav{
+  max-width:var(--maxw); margin:0 auto; padding:7px 32px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.brand{display:flex; align-items:center; gap:10px;}
+.brand-text{display:flex; flex-direction:column; line-height:1.1;}
+.brand-text .name{font-family:'Fraunces',serif; font-weight:600; font-size:14px; letter-spacing:0.01em;}
+.brand-text .role{font-family:'Courier Prime',monospace; font-size:9px; letter-spacing:0.13em; color:var(--brass); text-transform:uppercase; margin-top:1px;}
+
+.navlinks{display:flex; align-items:center; gap:30px;}
+.navlinks a{
+  font-size:13px; font-weight:500; color:var(--fog);
+  position:relative; padding:3px 0;
+  transition:color .25s ease;
+}
+.navlinks a:hover{color:var(--cream);}
+.navlinks a::after{
+  content:""; position:absolute; left:0; bottom:0; height:1px; width:0;
+  background:var(--brass); transition:width .3s ease;
+}
+.navlinks a:hover::after{width:100%;}
+.navlinks a.juez{
+  color:var(--ink); background:var(--brass); padding:6px 14px; border-radius:2px;
+  font-family:'Courier Prime',monospace; font-size:11.5px; letter-spacing:0.06em;
+}
+.navlinks a.juez:hover{background:var(--cream); color:var(--ink);}
+.navlinks a.juez::after{display:none;}
+
+.burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none;}
+.burger span{width:24px; height:1.5px; background:var(--cream);}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex; align-items:center;
+  padding:90px 0 100px;
+  background:
+    radial-gradient(circle at var(--mx,60%) var(--my,30%), rgba(201,164,104,0.10), transparent 45%),
+    linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+}
+.hero-grid{
+  display:grid; grid-template-columns:1.15fr 0.85fr; gap:60px; align-items:center;
+}
+.hero-badge-lockup{display:flex; align-items:center; gap:16px; margin-bottom:34px;}
+.hero-badge-lockup .caseno{
+  font-family:'Courier Prime',monospace; font-size:12px; color:var(--fog); letter-spacing:0.08em;
+}
+
+.hero h1{
+  font-size:clamp(2.4rem, 4.6vw, 4rem);
+  line-height:1.06;
+  color:var(--cream);
+  margin-bottom:26px;
+}
+.reveal-line{
+  display:block; position:relative; overflow:hidden; padding:0.06em 0;
+}
+.reveal-line span{display:inline-block;}
+.reveal-line::after{
+  content:""; position:absolute; inset:0; background:#000;
+  transform-origin:right; transform:scaleX(1);
+  transition:transform 1s cubic-bezier(.65,0,.15,1);
+}
+.reveal-line.revealed::after{transform:scaleX(0);}
+.reveal-line:nth-child(2)::after{transition-delay:.18s;}
+.reveal-line:nth-child(3)::after{transition-delay:.36s;}
+
+.hero p.lead{
+  font-size:17px; color:var(--fog); max-width:520px; margin-bottom:36px;
+}
+.hero-ctas{display:flex; gap:16px; flex-wrap:wrap;}
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:13px 26px; font-size:14px; font-weight:600;
+  border-radius:2px; transition:all .25s ease; border:1px solid transparent;
+}
+.btn-primary{background:var(--brass); color:var(--ink);}
+.btn-primary:hover{background:var(--cream);}
+.btn-ghost{border-color:var(--line); color:var(--cream);}
+.btn-ghost:hover{border-color:var(--brass); color:var(--brass);}
+
+/* badge / logo */
+.badge{width:210px; height:210px; margin:0 auto;}
+.hero-visual{display:flex; flex-direction:column; align-items:center; gap:22px;}
+.hero-visual .cred{
+  text-align:center; font-family:'Courier Prime',monospace; font-size:11.5px;
+  color:var(--fog); letter-spacing:0.08em; line-height:1.8;
+}
+.hero-visual .cred strong{color:var(--brass); display:block; font-size:12.5px;}
+
+/* ---------- INTRO / RESUMEN ---------- */
+.intro{padding:90px 0 40px; border-top:1px solid var(--line);}
+.intro-grid{display:grid; grid-template-columns:0.9fr 1.4fr; gap:60px; align-items:start;}
+.intro h2{font-size:clamp(1.6rem,2.6vw,2.1rem); color:var(--cream); margin:14px 0 0;}
+.intro-text p{color:var(--fog); font-size:15.5px; margin-bottom:16px; max-width:560px;}
+.intro-text p strong{color:var(--cream); font-weight:600;}
+
+/* ---------- SERVICIOS ---------- */
+.services{padding:80px 0 110px;}
+.services-head{margin-bottom:50px; max-width:640px;}
+.services-head h2{font-size:clamp(1.8rem,3vw,2.4rem); color:var(--cream); margin-top:14px;}
+.services-head p{color:var(--fog); margin-top:14px; font-size:15.5px;}
+
+.grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:28px;
+}
+.card{
+  position:relative;
+  background:linear-gradient(180deg, var(--folder) 0%, var(--folder-2) 100%);
+  color:#241c10;
+  border-radius:2px;
+  padding:34px 30px 28px;
+  box-shadow:0 18px 34px -18px rgba(0,0,0,0.55);
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+.card::before{
+  content:"";
+  position:absolute; top:-14px; left:28px;
+  width:78px; height:16px;
+  background:var(--folder-shadow);
+  clip-path:polygon(8% 0, 92% 0, 100% 100%, 0% 100%);
+  opacity:0.9;
+}
+.card:hover{transform:translateY(-6px); box-shadow:0 26px 46px -20px rgba(0,0,0,0.6);}
+
+.card-top{display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:18px;}
+.card-icon{width:44px; height:44px; color:var(--burgundy); flex-shrink:0;}
+.card-num{font-family:'Courier Prime',monospace; font-size:11px; color:var(--folder-shadow); letter-spacing:0.06em;}
+
+.card h3{font-size:19px; color:#211a0f; margin-bottom:10px; font-weight:600;}
+.card p{font-size:14.5px; color:#4a3f2a; line-height:1.55; margin-bottom:16px;}
+.card .link{
+  font-family:'Courier Prime',monospace; font-size:12.5px; letter-spacing:0.04em;
+  color:var(--burgundy); font-weight:700; display:inline-flex; align-items:center; gap:6px;
+}
+.card .link svg{width:13px; height:13px; transition:transform .25s ease;}
+.card:hover .link svg{transform:translateX(4px);}
+
+/* stamp accent on one card */
+.stamp{
+  position:absolute; top:22px; right:26px;
+  width:64px; height:64px; border:2px solid var(--burgundy);
+  border-radius:50%; opacity:0.35; transform:rotate(-14deg);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Courier Prime',monospace; font-size:8.5px; letter-spacing:0.05em;
+  color:var(--burgundy); text-align:center; line-height:1.2;
+}
+
+/* ---------- JUEZIA TEASER ---------- */
+.juezia{
+  padding:90px 0; border-top:1px solid var(--line);
+  background:linear-gradient(180deg, var(--ink-2), var(--ink));
+}
+.juezia-inner{
+  display:grid; grid-template-columns:1fr auto; gap:40px; align-items:center;
+  border:1px solid var(--line); padding:44px 48px; border-radius:2px;
+  background:rgba(201,164,104,0.03);
+}
+.juezia h2{font-size:clamp(1.5rem,2.4vw,2rem); color:var(--cream); margin-top:12px;}
+.juezia p{color:var(--fog); margin-top:12px; max-width:520px; font-size:15px;}
+.juezia .tag{
+  font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:0.1em;
+  color:var(--brass); border:1px solid var(--brass-dim); padding:4px 10px; border-radius:20px;
+  display:inline-block; margin-top:16px;
+}
+
+/* ---------- CONTACTO ---------- */
+.contact{padding:90px 0 60px; border-top:1px solid var(--line);}
+.contact-inner{display:grid; grid-template-columns:1fr 1fr; gap:60px;}
+.contact h2{font-size:clamp(1.6rem,2.6vw,2.1rem); color:var(--cream); margin-top:14px;}
+.contact p{color:var(--fog); font-size:15px; margin-top:14px; max-width:440px;}
+.contact-details{font-family:'Courier Prime',monospace; font-size:14px; color:var(--cream); line-height:2.4;}
+.contact-details span{color:var(--fog); display:block; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;}
+
+/* ---------- FOOTER ---------- */
+footer{
+  border-top:1px solid var(--line); padding:34px 0; 
+}
+.footer-inner{
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;
+}
+.footer-cred{font-family:'Courier Prime',monospace; font-size:12px; color:var(--fog); letter-spacing:0.03em;}
+.footer-cred strong{color:var(--brass);}
+
+@media (max-width:900px){
+  .hero-grid, .intro-grid, .contact-inner{grid-template-columns:1fr;}
+  .hero-visual{margin-top:20px;}
+  .grid{grid-template-columns:1fr;}
+  .navlinks{
+    position:fixed; top:42px; right:0; left:0; background:var(--ink);
+    flex-direction:column; align-items:flex-start; gap:0; 
+    border-top:1px solid var(--line);
+    max-height:0; overflow:hidden; transition:max-height .35s ease;
+  }
+  .navlinks.open{max-height:320px;}
+  .navlinks a{width:100%; padding:16px 32px; border-bottom:1px solid var(--line);}
+  .navlinks a.juez{margin:16px 32px; width:calc(100% - 64px); text-align:center;}
+  .burger{display:flex;}
+  .juezia-inner{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<svg class="grain" width="0" height="0">
+  <filter id="noiseFilter">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
+  </filter>
+</svg>
+<div class="grain" style="filter:url(#noiseFilter)"></div>
+
+<header>
+  <nav>
+    <div class="brand">
+      <div class="brand-text">
+        <span class="name">Alberto Casaus</span>
+        <span class="role">Detective Privado</span>
+      </div>
+    </div>
+    <button class="burger" id="burger" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="navlinks" id="navlinks">
+      <a href="#inicio">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="juezia.html" class="juez">Pregunta a JuezIA</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-badge-lockup">
+        <span class="eyebrow">Expediente abierto</span>
+      </div>
+      <h1>
+        <span class="reveal-line"><span>Lo que otros prefieren</span></span>
+        <span class="reveal-line"><span>no ver, nosotros lo</span></span>
+        <span class="reveal-line"><span>investigamos.</span></span>
+      </h1>
+      <p class="lead">Investigación privada acreditada en España. Discreción absoluta, metodología rigurosa e informes con validez ante los tribunales. Cada caso empieza con una duda; nosotros la convertimos en pruebas.</p>
+      <div class="hero-ctas">
+        <a href="servicios.html" class="btn btn-primary">Ver servicios</a>
+        <a href="contacto.html" class="btn btn-ghost">Consulta confidencial</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg class="badge" viewBox="0 0 200 200" fill="none">
+        <circle cx="100" cy="100" r="94" stroke="#c9a468" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="82" stroke="#c9a468" stroke-width="0.75" stroke-dasharray="3 5"/>
+
+        <!-- sello de cera -->
+        <g>
+          <circle cx="100" cy="92" r="30" fill="#7a232d"/>
+          <circle cx="76" cy="78" r="7" fill="#7a232d"/>
+          <circle cx="70" cy="98" r="6.5" fill="#7a232d"/>
+          <circle cx="82" cy="118" r="7" fill="#7a232d"/>
+          <circle cx="106" cy="122" r="6.5" fill="#7a232d"/>
+          <circle cx="126" cy="110" r="7" fill="#7a232d"/>
+          <circle cx="130" cy="86" r="6.5" fill="#7a232d"/>
+          <circle cx="116" cy="68" r="7" fill="#7a232d"/>
+          <circle cx="92" cy="64" r="6.5" fill="#7a232d"/>
+          <circle cx="100" cy="92" r="32" stroke="#4a1219" stroke-width="1" opacity="0.5"/>
+        </g>
+
+        <!-- ojo de cerradura -->
+        <circle cx="100" cy="83" r="6.5" fill="#f3ecdb"/>
+        <path d="M 94.5,89 L 105.5,89 L 101.5,107 L 98.5,107 Z" fill="#f3ecdb"/>
+
+        <text x="100" y="180" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="15" fill="#c9a468">A · C</text>
+      </svg>
+      <div class="cred">
+        <strong>Alberto Casaus</strong>
+        Detective Privado Acreditado<br>
+        Colegio de Detectives Privados
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="intro wrap">
+  <div class="intro-grid">
+    <div>
+      <span class="eyebrow">Sobre la agencia</span>
+      <h2>Discreción, rigor<br>y pruebas que resisten.</h2>
+    </div>
+    <div class="intro-text">
+      <p><strong>Toda investigación se lleva a cabo bajo secreto profesional</strong>, conforme a la Ley 5/2014, de 4 de abril, de Seguridad Privada, y se documenta en informes periciales que pueden presentarse como prueba en un procedimiento judicial.</p>
+      <p>Trabajamos casos de particulares y empresas en toda España, combinando seguimiento de campo, análisis documental y tecnología de investigación, siempre dentro del marco que establece la Ley 5/2014 y con el máximo respeto a la intimidad de todas las partes implicadas.</p>
+    </div>
+  </div>
+</section>
+
+<section class="services wrap" id="servicios">
+  <div class="services-head">
+    <span class="eyebrow">Áreas de investigación</span>
+    <h2>Servicios</h2>
+    <p>Seis líneas de trabajo, cada una con su propio expediente, su propia metodología y el mismo compromiso: discreción total y pruebas sólidas.</p>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-top">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+          <circle cx="17" cy="24" r="9"/>
+          <circle cx="31" cy="24" r="9" stroke-dasharray="2 2.5"/>
+        </svg>
+        <span class="card-num">EXP. 01</span>
+      </div>
+      <h3>Infidelidad de parejas</h3>
+      <p>Investigación discreta ante sospechas de infidelidad. Recopilamos pruebas fotográficas y documentales sólidas, respetando en todo momento la intimidad de las personas investigadas.</p>
+      <a href="contacto.html" class="link">Solicitar información <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M24 4c-8 0-14 6.2-14 14 0 10.5 14 26 14 26s14-15.5 14-26c0-7.8-6-14-14-14z"/>
+          <circle cx="24" cy="18" r="5"/>
+        </svg>
+        <span class="card-num">EXP. 02</span>
+      </div>
+      <h3>Localización de personas</h3>
+      <p>Búsqueda y localización de personas desaparecidas, herederos, deudores o familiares con los que se ha perdido todo contacto.</p>
+      <a href="contacto.html" class="link">Solicitar información <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="14" y="8" width="20" height="34" rx="2"/>
+          <path d="M19 8v-2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v2"/>
+          <path d="M24 18v8M20 22h8"/>
+          <path d="M18 34c3-3 9-3 12 0" stroke-dasharray="2 2.5"/>
+        </svg>
+        <span class="card-num">EXP. 03</span>
+      </div>
+      <h3>Seguimiento de bajas laborales</h3>
+      <p>Verificación discreta de actividades incompatibles con la incapacidad temporal declarada, con informe válido para la empresa o la mutua.</p>
+      <a href="contacto.html" class="link">Solicitar información <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M14 40c0-8 4-11 4-17a6 6 0 1 1 12 0c0 6 4 9 4 17"/>
+          <path d="M18 40h12"/>
+        </svg>
+        <span class="card-num">EXP. 04</span>
+      </div>
+      <h3>Conductas dudosas de hijos</h3>
+      <p>Seguimiento discreto ante sospechas de consumo de sustancias, malas compañías o comportamientos de riesgo en menores y jóvenes.</p>
+      <a href="contacto.html" class="link">Solicitar información <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M6 24c4-9 12-14 18-14s14 5 18 14c-4 9-12 14-18 14S10 33 6 24z"/>
+          <circle cx="24" cy="24" r="5"/>
+          <line x1="8" y1="8" x2="40" y2="40"/>
+        </svg>
+        <span class="card-num">EXP. 05</span>
+      </div>
+      <h3>Acoso y contravigilancia</h3>
+      <p>Detección de seguimientos, escuchas o vigilancia no autorizada. Protección y respuesta ante situaciones de acoso físico o digital.</p>
+      <a href="contacto.html" class="link">Solicitar información <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <div class="card">
+      <div class="stamp">CASO<br>ABIERTO</div>
+      <div class="card-top">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M10 30c0-7 6-12 14-12s14 5 14 12" />
+          <path d="M6 40h36" />
+          <circle cx="24" cy="12" r="6"/>
+        </svg>
+        <span class="card-num">EXP. 06</span>
+      </div>
+      <h3>Pensión alimenticia y custodia</h3>
+      <p>Informes periciales sobre el cumplimiento de obligaciones económicas y régimen de custodia de menores, válidos como prueba ante los tribunales.</p>
+      <a href="contacto.html" class="link">Solicitar información <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="10" y="6" width="28" height="36" rx="1"/>
+          <line x1="16" y1="16" x2="32" y2="16"/>
+          <line x1="16" y1="23" x2="32" y2="23"/>
+          <line x1="16" y1="30" x2="26" y2="30"/>
+        </svg>
+        <span class="card-num">EXP. 07</span>
+      </div>
+      <h3>Propiedad intelectual</h3>
+      <p>Investigación de falsificaciones, competencia desleal y usos no autorizados de marcas, patentes o derechos de autor.</p>
+      <a href="contacto.html" class="link">Solicitar información <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+  </div>
+</section>
+
+<section class="juezia" id="juezia">
+  <div class="wrap juezia-inner">
+    <div>
+      <span class="eyebrow">Herramienta digital</span>
+      <h2>JuezIA — pregunta antes de abrir el caso</h2>
+      <p>Un asistente para resolver, con lenguaje sencillo, las dudas legales más habituales antes de iniciar una investigación: qué se puede investigar, qué validez tiene una prueba y qué necesitas para presentar un informe pericial.</p>
+    </div>
+    <a href="juezia.html" class="btn btn-ghost">Preguntar a JuezIA</a>
+  </div>
+</section>
+
+<section class="contact wrap" id="contacto">
+  <div class="contact-inner">
+    <div>
+      <span class="eyebrow">Consulta confidencial</span>
+      <h2>Hablemos de tu caso</h2>
+      <p>Toda primera consulta se trata con confidencialidad absoluta. Cuéntanos lo que necesitas investigar y te indicaremos cómo proceder.</p>
+    </div>
+    <div class="contact-details">
+      <div><span>Teléfono</span>650 56 91 01</div>
+      <div><span>Correo</span>al100180@gmail.com</div>
+      <div><span>Zona de actuación</span>Toda España</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-cred"><strong>Detective Privado Acreditado:</strong> Alberto Casaus</div>
+    <div class="footer-cred">© 2026 — Todas las investigaciones se realizan conforme a la Ley 5/2014 de Seguridad Privada</div>
+  </div>
+</footer>
+
+<script>
+// mobile menu
+const burger = document.getElementById('burger');
+const navlinks = document.getElementById('navlinks');
+burger.addEventListener('click', () => navlinks.classList.toggle('open'));
+navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+
+// hero spotlight follow
+const hero = document.querySelector('.hero');
+hero.addEventListener('mousemove', (e) => {
+  const r = hero.getBoundingClientRect();
+  hero.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+  hero.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+});
+
+// redaction reveal
+const revealEls = document.querySelectorAll('.reveal-line');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(en => { if(en.isIntersecting){ en.target.classList.add('revealed'); } });
+}, {threshold:0.4});
+revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

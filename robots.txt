@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alberto011080.github.io/Detective-Privado_Alberto/sitemap.xml
